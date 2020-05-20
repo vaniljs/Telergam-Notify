@@ -1,0 +1,26 @@
+<form method="POST" action="" name="sendform">
+    <input type="text" name="Имя" value="Имя"><br>
+    <input type="text" name="Фамилия" value="Фамилия"><br>
+    <input type="text" name="Телефон" value="+7 999 999-99-99"><br>
+    <button type="submit">Отправить</button>
+</form>
+
+
+<script>
+    document.querySelector('button').addEventListener('click', (e) => {
+        e.preventDefault();
+        const form = document.forms.sendform,
+            formData = new FormData(form),
+            xhr = new XMLHttpRequest();
+        xhr.open("POST", "telegram.php");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.response)
+            }
+        };
+        xhr.send(formData);
+    });
+</script>
+
+

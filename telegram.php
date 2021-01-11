@@ -10,6 +10,9 @@ $domain = $converter->decode($_SERVER['HTTP_HOST']);
 $url = 'https://api.telegram.org/bot<TOKEN_BOT>/sendMessage';
 $params = array(
     'chat_id' => '<ID_ACCOUN_OR_NAME_CHANNEL>',
+    // How to know channel_id
+    // https://api.telegram.org/bot<YourBOTToken>/getUpdates 
+    
     'disable_web_page_preview' => 'True',
     'parse_mode' => 'HTML',
     'text' => "<b>От</b>: " .
